@@ -226,3 +226,12 @@ def zeros(n):
         i *= 5
 
     return int(count)
+
+
+def ips_between(start, end):
+    start = [int(i) for i in start.split('.')]
+    end = [int(i) for i in end.split('.')]
+    start = start[0]*256**3 + start[1]*256**2 + start[2]*256 + start[3]
+    end = end[0]*256**3 + end[1]*256**2 + end[2]*256 + end[3]
+    return end - start
+
