@@ -120,3 +120,89 @@ def high_and_low(numbers):
     num.sort()
     s += str(num[-1]) + ' ' + str(num[0])
     return s
+
+def uncensor(i, d):
+    c = 0
+    for l in i:
+        if l == '*':
+            i = i.replace('*', d[c], 1)
+            c += 1
+            
+    return i
+
+def after(nums):
+    r = []
+    for i in nums:
+        if nums.count(i) > 1:
+            continue
+        else:
+            if i % 2 == 0:
+                r.append(i)
+        if i == 237:
+            break
+            
+    return r
+
+def caesar_encode(phrase, shift):
+    words = phrase.split(' ')
+    alphas = 'abcdefghijklmnopqrstuvwxyz'
+    for ind, word in enumerate(words):
+        w = ''
+        for l in word:
+            w += alphas[(alphas.index(l) + shift) % 26]
+            
+        words[ind] = w
+        shift += 1
+        
+    return ' '.join(w for w in words)
+
+def check_parity(parity, bin_str): 
+    s = bin_str.count('1')
+    if (s % 2 == 0 and parity == 'odd') or (s % 2 != 0 and parity == 'even'):
+        return 1
+    else:
+        return 0
+    
+def solution(n):
+    r = [4,7]
+    try:
+        r.remove(n)
+        return r[0]
+    except:
+        return False
+    
+def single_digit(n):
+    n = str(n)
+    if len(n) == 1:
+        return int(n)
+    else:
+        a = eval('+'.join(i for i in bin(int(n))[2:]))
+        return single_digit(a)
+
+def make_checkered_board(n):
+    r = []
+    count = 0
+    for i in range(n):
+        r.append([])
+        for j in range(n):
+            if (count + j) % 2 == 0:
+                r[i].append('X')
+            else:
+                r[i].append('O')
+        count += 1
+                
+    return r
+
+def get_product_id(url): 
+    return url.split('/')[-1].split('-')[-2]
+
+def divisible_by_last(n):
+    n = str(n)
+    r = [False]
+    for i in range(1, len(n)):
+        try:
+            r.append(int(n[i]) % int(n[i - 1]) == 0)
+        except:
+            r.append(False)
+    return r
+
