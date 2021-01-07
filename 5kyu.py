@@ -235,3 +235,32 @@ def ips_between(start, end):
     end = end[0]*256**3 + end[1]*256**2 + end[2]*256 + end[3]
     return end - start
 
+import numpy as np
+
+def is_solved(b):
+    # TODO: Check if the board is solved!
+    b = np.array(b)
+    print(b)
+    if b[0][0] == b[1][1] == b[2][2]:
+        if b[0][0] != 0:
+            return b[0][0]
+        else:
+            return -1
+    elif b[0][2] == b[1][1] == b[2][0]:
+        if b[0][2] != 0:
+            return b[0][2]
+        else:
+            return -1
+    else:
+        for i in range(3):
+            if b[i][0] == b[i][1] == b[i][2]:
+                if b[i][0] != 0:
+                    return b[i][0]
+            elif b[0][i] == b[1][i] == b[2][i]:
+                if b[0][i] != 0:
+                    return b[0][i]
+        if 0 in b.flatten():
+            return -1
+        else:
+            return 0
+    
