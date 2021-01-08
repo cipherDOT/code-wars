@@ -113,3 +113,7 @@ boolean_to_string = lambda s:str(s)
 
 def count_sheeps(sheep):
     return sheep.count(True)
+
+# If you can't sleep, just count sheep!!
+def count_sheep(n):
+    return ''.join(f'{i} sheep...' for i in range(1, n + 1))
