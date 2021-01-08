@@ -206,3 +206,13 @@ def divisible_by_last(n):
             r.append(False)
     return r
 
+def score_to_tally(score):
+    n = dict()
+    tallies = ['', 'a', 'b', 'c', 'd', 'e']
+    for i in range(6):
+        n[i] = tallies[i]
+    r = ''
+    if score >= 5:
+        r +=  ' <br>'.join('e' for _ in range(score // 5)) + ' <br>'
+    r += n[score % 5]
+    return r
