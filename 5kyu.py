@@ -263,4 +263,9 @@ def is_solved(b):
             return -1
         else:
             return 0
-    
+
+def variance(nums): 
+    mean = sum(nums) / len(nums)
+    variance = sum([(i - mean)**2 for i in nums]) / len(nums)
+    return variance
+
