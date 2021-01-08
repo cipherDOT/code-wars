@@ -103,3 +103,17 @@ def persistence(n):
             prd *= int(l)
 
         return 1 + persistence(prd)
+
+def even_binary(n):
+    
+    def read(b):
+        b = b[::-1]
+        return eval('+'.join(f'{n}*2**{i}' for i,n in enumerate(b)))
+    
+    n = n.split(' ')
+    evens = [(x, read(x)) for x in n if read(x) % 2 == 0]
+    even_ind = [i for i,b in enumerate(n) if read(b) % 2 == 0]
+    evens.sort(key = lambda l:l[1])
+    for i, e in enumerate(evens):
+        n[even_ind[i]] = evens[i][0]
+    return ' '.join(b for b in n)
