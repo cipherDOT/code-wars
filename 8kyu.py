@@ -110,3 +110,6 @@ def add_five(num):
     return num + 5
 
 boolean_to_string = lambda s:str(s)
+
+def count_sheeps(sheep):
+    return sheep.count(True)
