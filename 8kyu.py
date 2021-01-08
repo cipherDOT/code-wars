@@ -101,3 +101,12 @@ def double_integer(i):
 
 def enough(cap, on, wait):
     return 0 if (on + wait) <= cap else abs((on + wait) - cap)
+
+def position(a):
+    al = 'abcdefghijklmnopqrstuvwxyz'
+    return f'Position of alphabet: {al.index(a) + 1}'
+
+def add_five(num):
+    return num + 5
+
+boolean_to_string = lambda s:str(s)
