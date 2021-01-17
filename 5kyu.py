@@ -269,3 +269,15 @@ def variance(nums):
     variance = sum([(i - mean)**2 for i in nums]) / len(nums)
     return variance
 
+# greed is good
+def score(dice):
+    points = 0
+    pointdict = {1:1000,2:200,3:300,4:400,5:500,6:600}
+    for i in range(1, 7):
+        if dice.count(i) >= 3:
+            points += pointdict[i]
+        
+    c1 = dice.count(1) if dice.count(1) < 3 else dice.count(1) - 3
+    c5 = dice.count(5) if dice.count(5) < 3 else dice.count(5) - 3
+    points += c1 * 100 + c5 * 50
+    return points
